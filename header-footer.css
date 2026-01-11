@@ -1,0 +1,200 @@
+.cl-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.cl-header__inner {
+  max-width: var(--container-max-w);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-family-sans);
+}
+
+.cl-header__brand {
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-scale-lg);
+  color: var(--color-primary);
+}
+
+.cl-header__logo-text {
+  line-height: var(--line-height-tight);
+}
+
+.cl-header__nav {
+  display: flex;
+}
+
+.cl-header__nav-list {
+  display: flex;
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cl-header__nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-scale-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: var(--line-height-base);
+  padding: var(--space-sm) 0;
+  transition: color var(--transition-fast);
+}
+
+.cl-header__nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width var(--transition-base);
+}
+
+.cl-header__nav-link:hover {
+  color: var(--color-accent);
+}
+
+.cl-header__nav-link:focus-visible {
+  outline: none;
+  color: var(--color-accent);
+}
+
+.cl-header__nav-link:hover::after,
+.cl-header__nav-link:focus-visible::after {
+  width: 100%;
+}
+
+.cl-header__nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: var(--space-sm);
+  cursor: pointer;
+}
+
+.cl-header__nav-toggle-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+}
+
+.cl-header__nav-toggle-line + .cl-header__nav-toggle-line {
+  margin-top: var(--space-xs);
+}
+
+@media (max-width: 768px) {
+  .cl-header__nav-toggle {
+    display: block;
+  }
+
+  .cl-header__nav {
+    position: fixed;
+    inset: var(--header-h) 0 auto 0;
+    background: var(--color-bg);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-100%);
+    transition: transform var(--transition-base);
+  }
+
+  .cl-header__nav--open {
+    transform: translateY(0);
+  }
+
+  .cl-header__nav-list {
+    flex-direction: column;
+    padding: var(--space-md) var(--container-padding) var(--space-lg);
+    gap: var(--space-md);
+  }
+}
+
+.cl-footer {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  font-family: var(--font-family-sans);
+}
+
+.cl-footer__inner {
+  max-width: var(--container-max-w);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.cl-footer__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.cl-footer__brand {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-scale-md);
+  color: var(--color-primary);
+}
+
+.cl-footer__nav-list,
+.cl-footer__legal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.cl-footer__nav-link {
+  font-size: var(--font-scale-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.cl-footer__nav-link:hover,
+.cl-footer__nav-link:focus-visible {
+  color: var(--color-accent);
+}
+
+.cl-footer__legal {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cl-footer__legal-link {
+  font-size: var(--font-scale-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.cl-footer__legal-link:hover,
+.cl-footer__legal-link:focus-visible {
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .cl-footer__legal {
+    justify-content: flex-start;
+  }
+}
